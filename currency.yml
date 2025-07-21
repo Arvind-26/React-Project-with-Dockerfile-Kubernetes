@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: curcon
+  labels:
+    env: test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      env: test
+  template:
+    metadata:
+      labels:
+        env: test
+    spec:
+      containers:
+        - name: currency-converter
+          image: arvind2611/currency-converter:A
+          ports:
+            - containerPort: 80
